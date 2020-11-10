@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="cd4dfb8c-d08f-43ca-800a-54553a9bd61a" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mule-demo-applicationFlow" doc:id="6de6e704-7643-4f79-af13-8db3131a801a" >
+		<http:listener doc:name="Listener" doc:id="c01773d4-1490-4623-a594-31cf6a6dd873" config-ref="HTTP_Listener_config" path="/test"/>
+		<set-payload value="#['This is demo application']" doc:name="Set Payload" doc:id="5c16cb31-2cbd-4949-b48e-f9d08b07ad42" />
+	</flow>
+</mule>
