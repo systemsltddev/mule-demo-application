@@ -7,8 +7,13 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="cd4dfb8c-d08f-43ca-800a-54553a9bd61a" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="c1b0fd50-f4d7-4c0b-a7e4-94309f12dddc" basePath="/api/timezone" sendCorrelationId="NEVER">
+		<http:request-connection host="worldtimeapi.org" port="80"/>
+		<http:default-query-params />
+	</http:request-config>
 	<flow name="mule-demo-applicationFlow" doc:id="6de6e704-7643-4f79-af13-8db3131a801a" >
 		<http:listener doc:name="Listener" doc:id="c01773d4-1490-4623-a594-31cf6a6dd873" config-ref="HTTP_Listener_config" path="/test"/>
-		<set-payload value="#['This is demo application']" doc:name="Set Payload" doc:id="5c16cb31-2cbd-4949-b48e-f9d08b07ad42" />
+		<http:request method="GET" doc:name="Request" doc:id="0d8ed151-3b33-47d6-8668-1b9162478f98" config-ref="HTTP_Request_configuration" path="/europe/london">
+		</http:request>
 	</flow>
 </mule>
