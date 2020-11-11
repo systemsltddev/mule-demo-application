@@ -21,25 +21,18 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>3.0.0</version>
-			</plugin>
-			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-				<cloudHubDeployment>
-					<muleVersion>4.1.4</muleVersion>
-					<username>dev_account</username>
-					<password>Zxcv@1234</password>
-					<environment>Sandbox</environment>
-					<applicationName>mule-demo-application</applicationName>
-					<workers>1</workers>
-					<workerType>Micro</workerType>
-				</cloudHubDeployment>
+					<cloudHubDeployment>
+						<muleVersion>4.3.0</muleVersion>
+						<username>dev_account</username>
+						<password>Zxcv@1234</password>
+						<applicationName>mule-demo-application</applicationName>
+						<environment>Sandbox</environment>
+					</cloudHubDeployment>
 				</configuration>
 			</plugin>
 		</plugins>
